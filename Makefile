@@ -35,6 +35,8 @@ SRCS	=	src/main.c \
 		src/hash/ht_free.c \
 		src/hash/ht_key_cmp.c \
 		src/hash/ht_rm_entry.c \
+		src/hash/ht_count.c \
+		src/hash/ht_foreach.c \
 
 NAME 	=	a.out
 

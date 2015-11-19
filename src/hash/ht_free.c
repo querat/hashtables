@@ -4,7 +4,7 @@
 #include "list.h"
 #include "hash.h"
 
-t_entry  *ht_free_entry(t_entry *entry, void (*ptr)(void*))
+t_entry         *ht_free_entry(t_entry *entry, void (*ptr)(void*))
 {
   if (entry == NULL)
     return (NULL);
@@ -19,7 +19,6 @@ static t_list   *free_bucket(t_list *bucket, void (*ptr)(void*))
 {
   t_node        *cur_list;
   t_node        *tmp_to_free;
-  
   
   cur_list = bucket->first;
   if (cur_list != NULL)

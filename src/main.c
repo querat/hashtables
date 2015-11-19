@@ -31,6 +31,15 @@ char            *rev(char *str)
   return str;
 }
 
+void            voidrev(void *data)
+{
+  char          *str;
+
+  str = data;
+  if (str)
+    rev(str);
+}
+
 int             main(int ac, char **av)
 {
   int           i = 0;
@@ -50,8 +59,16 @@ int             main(int ac, char **av)
       }
   
   
-  ht_print(hash);
+  char *str = ht_get_entry(hash, "main.c", 6);
+  if (str)
+    printf("\nget entry : %s\n", str);
+  
+  printf("éléments dans la hashtable : %d\n", ht_count(hash));
 
+  /* passe un revstr dans chaque élément de la hashtable */
+  ht_foreach(hash, &voidrev);
+
+  ht_print(hash);
   hash = ht_free(hash, &free);
   
   

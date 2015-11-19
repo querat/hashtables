@@ -10,7 +10,7 @@ static t_node   *new_node_to_insert(t_node *cur, void *data)
   
   new = malloc(sizeof(t_node));
   if (new == NULL)
-    return (false);
+    return (NULL);
   new->data = data;
   new->next = cur;
   return (new);
@@ -21,6 +21,7 @@ int             list_insert(struct s_list **this, int offset, void *data)
   int           i;
   t_node        *cur;
   t_node        *tmp;
+  t_node        *new;
   
   if (this == NULL || (*this) == NULL || (*this)->first == NULL)
     return (false);
@@ -35,6 +36,9 @@ int             list_insert(struct s_list **this, int offset, void *data)
       tmp = cur;
       cur = cur->next;
     }
-  tmp->next = new_node_to_insert(cur, data);
+  new = new_node_to_insert(cur, data);
+  if (new == NULL)
+    return (false);
+  tmp->next = new;
   return (true);
 }

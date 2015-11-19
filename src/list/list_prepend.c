@@ -15,6 +15,6 @@ int             list_prepend(struct s_list **this, void *data)
   new->next = (*this)->first;
   (*this)->first = new;
   if ((*this)->first->next == NULL)
-    (*this)->last = NULL;
+    (*this)->last = new;
   return (true);
 }
