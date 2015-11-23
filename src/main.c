@@ -59,10 +59,11 @@ int             main(int ac, char **av)
       }
   
   
-  char *str = ht_get_entry(hash, "main.c", 6);
+  char *str = ht_get_entry(hash, "main.o", 6);
   if (str)
     printf("\nget entry : %s\n", str);
-  
+  else
+    printf("nope\n");
   printf("éléments dans la hashtable : %d\n", ht_count(hash));
 
   /* passe un revstr dans chaque élément de la hashtable */
